@@ -8,144 +8,143 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     :root {
-      --color-bg: #ffffff; --color-bg-secondary: #f8f9fa; --color-bg-tertiary: #f1f3f5;
-      --color-bg-info: #e7f5ff; --color-bg-success: #ebfbee; --color-bg-warning: #fff9db; --color-bg-danger: #fff5f5;
-      --color-text: #212529; --color-text-secondary: #868e96; --color-text-tertiary: #adb5bd;
-      --color-text-info: #1971c2; --color-text-success: #2f9e44; --color-text-warning: #e67700; --color-text-danger: #c92a2a;
-      --color-border: rgba(0,0,0,0.12); --color-border-secondary: rgba(0,0,0,0.2);
-      --color-border-info: #74c0fc; --color-border-success: #8ce99a; --color-border-warning: #ffd43b; --color-border-danger: #ffa8a8;
-      --radius-md: 8px; --radius-lg: 12px;
+      --bg: #ffffff; --bg2: #f8f9fa; --bg3: #f1f3f5;
+      --bgi: #e7f5ff; --bgs: #ebfbee; --bgw: #fff9db; --bgd: #fff5f5;
+      --tx: #212529; --tx2: #868e96; --tx3: #adb5bd;
+      --txi: #1971c2; --txs: #2f9e44; --txw: #e67700; --txd: #c92a2a;
+      --br: rgba(0,0,0,0.12); --br2: rgba(0,0,0,0.2);
+      --bri: #74c0fc; --brs: #8ce99a; --brw: #ffd43b; --brd: #ffa8a8;
+      --rm: 8px; --rl: 12px;
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --color-bg: #1a1b1e; --color-bg-secondary: #25262b; --color-bg-tertiary: #2c2e33;
-        --color-bg-info: #1c3557; --color-bg-success: #1b3a2a; --color-bg-warning: #3d3000; --color-bg-danger: #3d1c1c;
-        --color-text: #c1c2c5; --color-text-secondary: #909296; --color-text-tertiary: #5c5f66;
-        --color-text-info: #74c0fc; --color-text-success: #8ce99a; --color-text-warning: #ffd43b; --color-text-danger: #ffa8a8;
-        --color-border: rgba(255,255,255,0.1); --color-border-secondary: rgba(255,255,255,0.2);
-        --color-border-info: #1c3557; --color-border-success: #1b3a2a; --color-border-warning: #3d3000; --color-border-danger: #3d1c1c;
+        --bg: #1a1b1e; --bg2: #25262b; --bg3: #2c2e33;
+        --bgi: #1c3557; --bgs: #1b3a2a; --bgw: #3d3000; --bgd: #3d1c1c;
+        --tx: #c1c2c5; --tx2: #909296; --tx3: #5c5f66;
+        --txi: #74c0fc; --txs: #8ce99a; --txw: #ffd43b; --txd: #ffa8a8;
+        --br: rgba(255,255,255,0.1); --br2: rgba(255,255,255,0.2);
+        --bri: #1c3557; --brs: #1b3a2a; --brw: #3d3000; --brd: #3d1c1c;
       }
     }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--color-bg-tertiary); color: var(--color-text); margin: 0; padding: 1rem; line-height: 1.6; }
-    .container { max-width: 720px; margin: 0 auto; }
-    .header { display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; }
-    .header-icon { width: 40px; height: 40px; border-radius: var(--radius-md); background: var(--color-bg-info); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .header-icon i { font-size: 22px; color: var(--color-text-info); }
-    .header h1 { font-size: 20px; font-weight: 600; margin: 0 0 2px; color: var(--color-text); }
-    .header p { font-size: 13px; color: var(--color-text-secondary); margin: 0; }
-    .card { background: var(--color-bg); border: 0.5px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem; margin-bottom: 1rem; }
-    .card.success { background: var(--color-bg-success); border-color: var(--color-border-success); }
-    .card.warning { background: var(--color-bg-warning); border-color: var(--color-border-warning); }
-    .card.danger { background: var(--color-bg-danger); border-color: var(--color-border-danger); }
-    .card.secondary { background: var(--color-bg-secondary); border: none; }
-    .section-label { font-size: 12px; font-weight: 600; color: var(--color-text-secondary); margin: 0 0 8px; }
-    .sub-label { font-size: 11px; color: var(--color-text-tertiary); margin: 0 0 6px; }
-    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
-    .grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 5px; margin-bottom: 1rem; }
-    .field { display: flex; flex-direction: column; gap: 4px; }
-    .field > span { font-size: 12px; color: var(--color-text-secondary); }
-    select, input[type="number"], input[type="text"] { width: 100%; font-size: 13px; padding: 6px 8px; border: 0.5px solid var(--color-border-secondary); border-radius: var(--radius-md); background: var(--color-bg); color: var(--color-text); outline: none; }
-    select:focus, input:focus { border-color: var(--color-border-info); }
-    .days-row { display: flex; align-items: center; gap: 8px; }
-    .days-row input { width: 80px; text-align: center; }
-    .phase-label { font-size: 11px; margin-left: 4px; }
-    .advice-box { border-radius: var(--radius-md); padding: 10px 12px; margin-bottom: 1rem; border: 0.5px solid var(--color-border); background: var(--color-bg-secondary); }
-    .adv-title { font-size: 12px; font-weight: 600; margin: 0 0 3px; }
-    .adv-body { font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.6; }
-    .inner-card { border: 0.5px solid var(--color-border); border-radius: var(--radius-md); padding: 12px; margin-bottom: 1rem; }
-    .diff-box { border-radius: var(--radius-md); padding: 6px 12px; font-size: 12px; font-weight: 600; margin-bottom: 10px; display: none; }
-    .sim-box { border-radius: var(--radius-md); padding: 10px 12px; background: var(--color-bg-secondary); border: 0.5px solid var(--color-border); margin-bottom: 10px; display: none; }
-    .sim-title { font-size: 12px; font-weight: 600; color: var(--color-text-secondary); margin: 0 0 6px; }
-    .sim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
-    .sim-card { background: var(--color-bg); border-radius: var(--radius-md); padding: 8px 10px; border: 0.5px solid var(--color-border); }
-    .sim-sub { font-size: 11px; color: var(--color-text-tertiary); margin: 0 0 2px; }
-    .sim-val { font-size: 15px; font-weight: 600; color: var(--color-text); margin: 0; }
-    .sim-detail { font-size: 11px; color: var(--color-text-secondary); margin: 0; }
-    .sim-result { font-size: 13px; font-weight: 600; margin: 0; line-height: 1.5; }
-    .checkbox-label { display: flex; align-items: center; gap: 5px; padding: 4px 7px; border-radius: var(--radius-md); border: 0.5px solid var(--color-border); background: var(--color-bg-secondary); cursor: pointer; font-size: 12px; color: var(--color-text); user-select: none; }
-    .checkbox-label.star3 { border-color: var(--color-border-danger); background: var(--color-bg-danger); }
-    .checkbox-label.star2 { border-color: var(--color-border-warning); background: var(--color-bg-warning); }
-    .checkbox-label input { margin: 0; width: 13px; height: 13px; flex-shrink: 0; cursor: pointer; }
-    .map-btns { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.25rem; }
-    .map-btn { padding: 5px 14px; font-size: 13px; border-radius: var(--radius-md); border: 0.5px solid var(--color-border); background: var(--color-bg); color: var(--color-text); cursor: pointer; }
-    .map-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-    .map-btn.active { background: var(--color-bg-info); color: var(--color-text-info); border-color: var(--color-border-info); }
-    .analyze-btn { width: 100%; padding: 10px; font-size: 14px; font-weight: 600; cursor: pointer; background: var(--color-bg-info); color: var(--color-text-info); border: 0.5px solid var(--color-border-info); border-radius: var(--radius-md); transition: opacity 0.2s; }
-    .analyze-btn:hover { opacity: 0.85; }
-    .analyze-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-    .loading { display: flex; align-items: center; gap: 10px; padding: 1.5rem; justify-content: center; color: var(--color-text-secondary); font-size: 14px; }
-    .spinner { width: 20px; height: 20px; border: 2px solid var(--color-border); border-top-color: var(--color-text-info); border-radius: 50%; animation: spin 0.8s linear infinite; flex-shrink: 0; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .result-section { margin-bottom: 1rem; }
-    .result-section h3 { font-size: 14px; font-weight: 600; margin: 0 0 8px; display: flex; align-items: center; gap: 6px; }
-    .result-section h3 i { font-size: 16px; }
-    .result-section ul { margin: 0; padding: 0; list-style: none; }
-    .result-section ul li { padding: 8px 0 8px 12px; border-left: 2px solid var(--color-border); margin-bottom: 8px; }
-    .result-section ul li:last-child { margin-bottom: 0; }
-    .result-section ul li strong { display: block; font-size: 13px; color: var(--color-text); margin-bottom: 2px; }
-    .result-section ul li span { font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; }
-    .action-tag { font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: var(--radius-md); display: inline-block; margin-bottom: 3px; }
-    .tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
-    .base-tag { font-size: 12px; padding: 3px 8px; border-radius: var(--radius-md); border: 0.5px solid; }
-    .base-tag.star3 { background: var(--color-bg-danger); color: var(--color-text-danger); border-color: var(--color-border-danger); }
-    .base-tag.star2 { background: var(--color-bg-warning); color: var(--color-text-warning); border-color: var(--color-border-warning); }
-    .base-tag.star1 { background: var(--color-bg); color: var(--color-text); border-color: var(--color-border); }
-    .api-key-notice { background: var(--color-bg-warning); border: 0.5px solid var(--color-border-warning); border-radius: var(--radius-md); padding: 10px 12px; margin-bottom: 1rem; font-size: 12px; color: var(--color-text-warning); }
-    @media (max-width: 480px) {
-      .grid2 { grid-template-columns: 1fr; }
-      .grid3 { grid-template-columns: repeat(2,1fr); }
-      .sim-grid { grid-template-columns: 1fr; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg3); color: var(--tx); margin: 0; padding: 1rem; line-height: 1.6; }
+    .wrap { max-width: 720px; margin: 0 auto; }
+    .hdr { display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; }
+    .hdr-icon { width: 40px; height: 40px; border-radius: var(--rm); background: var(--bgi); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .hdr-icon i { font-size: 22px; color: var(--txi); }
+    .hdr h1 { font-size: 20px; font-weight: 600; margin: 0 0 2px; }
+    .hdr p { font-size: 13px; color: var(--tx2); margin: 0; }
+    .card { background: var(--bg); border: 0.5px solid var(--br); border-radius: var(--rl); padding: 1.25rem; margin-bottom: 1rem; }
+    .card.s { background: var(--bgs); border-color: var(--brs); }
+    .card.w { background: var(--bgw); border-color: var(--brw); }
+    .card.d { background: var(--bgd); border-color: var(--brd); }
+    .card.sec { background: var(--bg2); border: none; }
+    .lbl { font-size: 12px; font-weight: 600; color: var(--tx2); margin: 0 0 8px; }
+    .sub { font-size: 11px; color: var(--tx3); margin: 0 0 6px; }
+    .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+    .g3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 5px; margin-bottom: 1rem; }
+    .fld { display: flex; flex-direction: column; gap: 4px; }
+    .fld > span { font-size: 12px; color: var(--tx2); }
+    select, input[type="number"], input[type="password"], input[type="text"] {
+      width: 100%; font-size: 13px; padding: 6px 8px;
+      border: 0.5px solid var(--br2); border-radius: var(--rm);
+      background: var(--bg); color: var(--tx); outline: none;
     }
+    select:focus, input:focus { border-color: var(--bri); }
+    .dr { display: flex; align-items: center; gap: 8px; }
+    .dr input { width: 80px; text-align: center; }
+    .ph { font-size: 11px; margin-left: 4px; }
+    .abox { border-radius: var(--rm); padding: 10px 12px; margin-bottom: 1rem; border: 0.5px solid var(--br); background: var(--bg2); }
+    .abox .at { font-size: 12px; font-weight: 600; margin: 0 0 3px; }
+    .abox .ab { font-size: 12px; color: var(--tx2); margin: 0; line-height: 1.6; }
+    .icard { border: 0.5px solid var(--br); border-radius: var(--rm); padding: 12px; margin-bottom: 1rem; }
+    .db { border-radius: var(--rm); padding: 6px 12px; font-size: 12px; font-weight: 600; margin-bottom: 10px; display: none; }
+    .sb { border-radius: var(--rm); padding: 10px 12px; background: var(--bg2); border: 0.5px solid var(--br); margin-bottom: 10px; display: none; }
+    .st { font-size: 12px; font-weight: 600; color: var(--tx2); margin: 0 0 6px; }
+    .sg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+    .sc { background: var(--bg); border-radius: var(--rm); padding: 8px 10px; border: 0.5px solid var(--br); }
+    .ss { font-size: 11px; color: var(--tx3); margin: 0 0 2px; }
+    .sv { font-size: 15px; font-weight: 600; margin: 0; }
+    .sd { font-size: 11px; color: var(--tx2); margin: 0; }
+    .sr { font-size: 13px; font-weight: 600; margin: 0; line-height: 1.5; }
+    .cbl { display: flex; align-items: center; gap: 5px; padding: 4px 7px; border-radius: var(--rm); border: 0.5px solid var(--br); background: var(--bg2); cursor: pointer; font-size: 12px; color: var(--tx); user-select: none; }
+    .cbl.s3 { border-color: var(--brd); background: var(--bgd); }
+    .cbl.s2 { border-color: var(--brw); background: var(--bgw); }
+    .cbl input { margin: 0; width: 13px; height: 13px; flex-shrink: 0; cursor: pointer; }
+    .mbts { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.25rem; }
+    .mb { padding: 5px 14px; font-size: 13px; border-radius: var(--rm); border: 0.5px solid var(--br); background: var(--bg); color: var(--tx); cursor: pointer; }
+    .mb:disabled { opacity: 0.4; cursor: not-allowed; }
+    .mb.act { background: var(--bgi); color: var(--txi); border-color: var(--bri); }
+    .abtn { width: 100%; padding: 10px; font-size: 14px; font-weight: 600; cursor: pointer; background: var(--bgi); color: var(--txi); border: 0.5px solid var(--bri); border-radius: var(--rm); }
+    .abtn:hover { opacity: 0.85; }
+    .abtn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .spin { width: 18px; height: 18px; border: 2px solid var(--br); border-top-color: var(--txi); border-radius: 50%; animation: sp 0.8s linear infinite; display: inline-block; vertical-align: middle; margin-right: 6px; }
+    @keyframes sp { to { transform: rotate(360deg); } }
+    .aitag { font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: var(--rm); display: inline-block; margin-bottom: 3px; }
+    .tgl { display: flex; flex-wrap: wrap; gap: 6px; }
+    .btg { font-size: 12px; padding: 3px 8px; border-radius: var(--rm); border: 0.5px solid; }
+    .btg.s3 { background: var(--bgd); color: var(--txd); border-color: var(--brd); }
+    .btg.s2 { background: var(--bgw); color: var(--txw); border-color: var(--brw); }
+    .btg.s1 { background: var(--bg); color: var(--tx); border-color: var(--br); }
+    .key-section { background: var(--bgw); border: 0.5px solid var(--brw); border-radius: var(--rm); padding: 12px; margin-bottom: 1rem; }
+    .key-section p { font-size: 12px; color: var(--txw); margin: 0 0 8px; font-weight: 600; }
+    .key-section .note { font-size: 11px; color: var(--tx2); margin: 6px 0 0; line-height: 1.6; }
+    @media (max-width: 480px) { .g2 { grid-template-columns: 1fr; } .g3 { grid-template-columns: repeat(2,1fr); } .sg { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-<div class="container">
-  <div class="header">
-    <div class="header-icon"><i class="ti ti-sword"></i></div>
+<div class="wrap">
+  <div class="hdr">
+    <div class="hdr-icon"><i class="ti ti-sword"></i></div>
     <div>
       <h1>麗華の野望 開幕前 戦略アドバイザー</h1>
-      <p>AIが状況を分析して今日と明日以降の戦略を提案します</p>
+      <p>AIが状況を総合判断して今日と明日以降の戦略を提案します</p>
     </div>
   </div>
 
-  <div class="card">
-    <p class="section-label">マップを選択</p>
-    <div class="map-btns" id="mapBtns"></div>
+  <div class="key-section">
+    <p><i class="ti ti-key" style="font-size:14px;vertical-align:-2px;"></i> Anthropic APIキーを入力してください</p>
+    <input type="password" id="apiKey" placeholder="sk-ant-..." style="margin-bottom:4px;">
+    <p class="note">APIキーは <a href="https://console.anthropic.com" target="_blank" style="color:var(--txi);">console.anthropic.com</a> で取得できます。このページ上でのみ使用され、外部に送信されません（Anthropic APIへの通信のみ）。</p>
+  </div>
 
-    <div class="grid2">
-      <div class="field">
+  <div class="card">
+    <p class="lbl">マップを選択</p>
+    <div class="mbts" id="mapBtns"></div>
+
+    <div class="g2">
+      <div class="fld">
         <span>開催形式</span>
         <select id="mode" onchange="onModeChange()">
           <option value="normal">通常版（2週間・21:00〜21:45）</option>
           <option value="national">全国版（1週間・22:00〜22:45）</option>
         </select>
       </div>
-      <div class="field">
-        <span>今日の残り日数 <span class="phase-label" id="daysPhaseLabel"></span></span>
-        <div class="days-row">
+      <div class="fld">
+        <span>今日の残り日数 <span class="ph" id="phLabel"></span></span>
+        <div class="dr">
           <input type="number" id="daysLeft" min="1" max="14" value="7" oninput="onDaysChange()">
-          <span>日</span>
+          <span style="font-size:13px;color:var(--tx2);">日</span>
         </div>
       </div>
     </div>
 
-    <div class="advice-box" id="daysAdviceBox">
-      <p class="adv-title" id="daysAdviceTitle"></p>
-      <p class="adv-body" id="daysAdviceBody"></p>
+    <div class="abox" id="daysBox">
+      <p class="at" id="daysTitle"></p>
+      <p class="ab" id="daysBody"></p>
     </div>
 
-    <div class="inner-card">
-      <p class="section-label">勝ちたい相手ギルドの情報</p>
-      <div class="grid2">
-        <div class="field"><span>自チームの現在ポイント</span><input type="number" id="myPoint" placeholder="例: 48" min="0" oninput="updateSim()"></div>
-        <div class="field"><span>相手ギルドの現在ポイント</span><input type="number" id="enemyPoint" placeholder="例: 36" min="0" oninput="updateSim()"></div>
+    <div class="icard">
+      <p class="lbl">勝ちたい相手ギルドの情報</p>
+      <div class="g2">
+        <div class="fld"><span>自チームの現在ポイント</span><input type="number" id="myPoint" placeholder="例: 48" min="0" oninput="updateSim()"></div>
+        <div class="fld"><span>相手ギルドの現在ポイント</span><input type="number" id="enemyPoint" placeholder="例: 36" min="0" oninput="updateSim()"></div>
       </div>
-      <div class="diff-box" id="pointDiffBox"></div>
-      <div class="sim-box" id="simBox">
-        <p class="sim-title">フィニッシュ予測（現状維持の場合）</p>
+      <div class="db" id="diffBox"></div>
+      <div class="sb" id="simBox">
+        <p class="st">フィニッシュ予測（現状維持の場合）</p>
         <div id="simContent"></div>
       </div>
-      <div class="field">
+      <div class="fld">
         <span>相手の戦力（戦闘力）</span>
         <select id="enemy">
           <option value="">選択してください</option>
@@ -156,9 +155,9 @@
       </div>
     </div>
 
-    <div class="field" style="margin-bottom:1rem;">
+    <div class="fld" style="margin-bottom:1rem;">
       <span>布告可能数（前日ランキング）</span>
-      <select id="sengenCount">
+      <select id="sc">
         <option value="">選択してください</option>
         <option value="three" id="opt3" style="display:none;">3つ（全国版）</option>
         <option value="two" id="opt2">2つ（上位8ギルド）</option>
@@ -167,17 +166,17 @@
       </select>
     </div>
 
-    <p class="section-label">自チームの保有拠点 <span class="sub-label" id="ownPtLabel"></span></p>
-    <div class="grid3" id="baseGrid"></div>
+    <p class="lbl">自チームの保有拠点 <span class="sub" id="ownLbl"></span></p>
+    <div class="g3" id="baseGrid"></div>
 
-    <p class="section-label">布告されている拠点</p>
-    <p class="sub-label">どのギルドからでも、布告されている拠点すべてにチェック</p>
-    <div class="grid3" id="attackedGrid"></div>
+    <p class="lbl">布告されている拠点</p>
+    <p class="sub">どのギルドからでも、布告されている拠点すべてにチェック</p>
+    <div class="g3" id="attackedGrid"></div>
 
-    <p class="section-label">相手ギルドが保有している拠点 <span class="sub-label" id="enemyPtLabel"></span></p>
-    <div class="grid3" id="enemyBaseGrid"></div>
+    <p class="lbl">相手ギルドが保有している拠点 <span class="sub" id="enLbl"></span></p>
+    <div class="g3" id="enemyBaseGrid"></div>
 
-    <button class="analyze-btn" id="analyzeBtn" onclick="analyze()">
+    <button class="abtn" id="analyzeBtn" onclick="analyze()">
       <i class="ti ti-sparkles"></i> AIに戦略を分析してもらう
     </button>
   </div>
@@ -186,7 +185,7 @@
 </div>
 
 <script>
-var BASES = {
+var BASES={
   '本丸':{star:3,neighbors:['肉屋A','メゾン・ド・イエ','本田のマンション','八本木ヒルズ']},
   '八本木ヒルズ':{star:2,neighbors:['本丸','映画館A','ゲームセンターA']},
   '温泉宿':{star:2,neighbors:['カシワ荘','映画館A','酒場','魚屋A']},
@@ -207,38 +206,36 @@ var BASES = {
   '酒場':{star:1,neighbors:['温泉宿','橘家']},
   '橘家':{star:1,neighbors:['酒場','ゲームセンターA']}
 };
-var MAPS = {'トウホク':{available:true},'トウカイ':{available:false},'キンキ':{available:false},'シコク':{available:false},'キュウシュウ':{available:false}};
-var currentMap = 'トウホク';
-var BASE_NAMES = Object.keys(BASES);
+var MAPS={'トウホク':{available:true},'トウカイ':{available:false},'キンキ':{available:false},'シコク':{available:false},'キュウシュウ':{available:false}};
+var MAP='トウホク';
+var BN=Object.keys(BASES);
 
-function sl(n){ return '★'.repeat(BASES[n].star); }
-function calcPts(list){ return list.reduce(function(s,n){ return s+(BASES[n]?BASES[n].star:0); },0); }
-function getChecked(prefix){ return BASE_NAMES.filter(function(n){ var el=document.getElementById(prefix+'_'+n); return el&&el.checked; }); }
+function sl(n){return '★'.repeat(BASES[n].star);}
+function pts(l){return l.reduce(function(s,n){return s+(BASES[n]?BASES[n].star:0);},0);}
+function chk(p){return BN.filter(function(n){var e=document.getElementById(p+'_'+n);return e&&e.checked;});}
 
-function buildMapButtons(){
-  var c=document.getElementById('mapBtns'); c.innerHTML='';
-  Object.keys(MAPS).forEach(function(name){
-    var av=MAPS[name].available;
-    var btn=document.createElement('button');
-    btn.textContent=name+(av?'':'（未公開）'); btn.disabled=!av;
-    btn.className='map-btn'+(name===currentMap?' active':'');
-    if(av){btn.onclick=function(){switchMap(name);};}
-    c.appendChild(btn);
+function buildMapBtns(){
+  var c=document.getElementById('mapBtns');c.innerHTML='';
+  Object.keys(MAPS).forEach(function(n){
+    var av=MAPS[n].available;
+    var b=document.createElement('button');
+    b.textContent=n+(av?'':'（未公開）');b.disabled=!av;
+    b.className='mb'+(n===MAP?' act':'');
+    if(av){b.onclick=function(){MAP=n;buildMapBtns();buildGrids();document.getElementById('result').innerHTML='';updateSim();};}
+    c.appendChild(b);
   });
 }
 
-function switchMap(name){ currentMap=name; buildMapButtons(); buildCheckboxGrids(); document.getElementById('result').innerHTML=''; updateSim(); }
-
-function buildCheckboxGrids(){
+function buildGrids(){
   [['baseGrid','own'],['attackedGrid','atk'],['enemyBaseGrid','enm']].forEach(function(g){
-    var grid=document.getElementById(g[0]); grid.innerHTML='';
-    BASE_NAMES.forEach(function(name){
-      var s=BASES[name].star;
-      var label=document.createElement('label');
-      label.className='checkbox-label'+(s===3?' star3':s===2?' star2':'');
-      var cb=document.createElement('input'); cb.type='checkbox'; cb.id=g[1]+'_'+name; cb.onchange=updateSim;
-      var span=document.createElement('span'); span.textContent=sl(name)+' '+name;
-      label.appendChild(cb); label.appendChild(span); grid.appendChild(label);
+    var grid=document.getElementById(g[0]);grid.innerHTML='';
+    BN.forEach(function(n){
+      var s=BASES[n].star;
+      var l=document.createElement('label');
+      l.className='cbl'+(s===3?' s3':s===2?' s2':'');
+      var cb=document.createElement('input');cb.type='checkbox';cb.id=g[1]+'_'+n;cb.onchange=updateSim;
+      var sp=document.createElement('span');sp.textContent=sl(n)+' '+n;
+      l.appendChild(cb);l.appendChild(sp);grid.appendChild(l);
     });
   });
 }
@@ -253,279 +250,216 @@ function onModeChange(){
 }
 
 function onDaysChange(){
-  var days=parseInt(document.getElementById('daysLeft').value)||1;
+  var d=parseInt(document.getElementById('daysLeft').value)||1;
   var isN=document.getElementById('mode').value==='national';
-  var maxDays=isN?7:14; var ratio=days/maxDays;
-  var phase,pc,tt,tb;
-  if(ratio>0.6){phase='序盤';pc='#2f9e44';tt='残り'+days+'日（序盤）— 拠点を広げてポイントの土台を作れ';tb='序盤は拠点の確保が最優先です。布告権を使って★1・★2拠点を積極的に押さえ、本丸を狙うルートを作ってください。';}
-  else if(ratio>0.3){phase='中盤';pc='#e67700';tt='残り'+days+'日（中盤）— ポイント差を計算して攻守を判断せよ';tb='中盤は相手とのポイント差と1日あたりの獲得ポイントを計算しながら戦略を立てる時期です。';}
-  else{phase='終盤';pc='#c92a2a';
-    if(days===1){tt='最終日 — 布告権を全て使い切り、駆け込み奪取を狙え';tb='終戦15分前（通常版21:30・全国版22:30）以降に取った拠点は取り返されません。';}
-    else{tt='残り'+days+'日（終盤）';tb='逆転するなら今しかない。追いかけている相手には大胆な攻撃、リードしている相手には全力守備で臨んでください。';}}
-  var lbl=document.getElementById('daysPhaseLabel'); lbl.textContent='（'+phase+'）'; lbl.style.color=pc;
-  var box=document.getElementById('daysAdviceBox'); box.style.borderColor=pc;
-  var tel=document.getElementById('daysAdviceTitle'); tel.style.color=pc; tel.textContent=tt;
-  document.getElementById('daysAdviceBody').textContent=tb;
+  var max=isN?7:14;var r=d/max;
+  var ph,pc,tt,tb;
+  if(r>0.6){ph='序盤';pc='#2f9e44';tt='残り'+d+'日（序盤）— 拠点を広げてポイントの土台を作れ';tb='序盤は拠点の確保が最優先です。布告権を使って★1・★2拠点を積極的に押さえ、本丸を狙うルートを作ってください。';}
+  else if(r>0.3){ph='中盤';pc='#e67700';tt='残り'+d+'日（中盤）— ポイント差を計算して攻守を判断せよ';tb='中盤は相手とのポイント差と1日あたりの獲得ポイントを計算しながら戦略を立てる時期です。';}
+  else{ph='終盤';pc='#c92a2a';
+    if(d===1){tt='最終日 — 布告権を全て使い切り、駆け込み奪取を狙え';tb='終戦15分前（通常版21:30・全国版22:30）以降に取った拠点は取り返されません。';}
+    else{tt='残り'+d+'日（終盤）';tb='追いかけている相手には大胆な攻撃、リードしている相手には全力守備で臨んでください。';}}
+  var pl=document.getElementById('phLabel');pl.textContent='（'+ph+'）';pl.style.color=pc;
+  var bx=document.getElementById('daysBox');bx.style.borderColor=pc;
+  var te=document.getElementById('daysTitle');te.style.color=pc;te.textContent=tt;
+  document.getElementById('daysBody').textContent=tb;
   updateSim();
 }
 
 function updateSim(){
-  var days=parseInt(document.getElementById('daysLeft').value)||1;
-  var myPt=document.getElementById('myPoint').value!==''?parseInt(document.getElementById('myPoint').value):null;
-  var enPt=document.getElementById('enemyPoint').value!==''?parseInt(document.getElementById('enemyPoint').value):null;
-  var owned=getChecked('own'); var enemyOwned=getChecked('enm');
-  var myD=calcPts(owned,BASES); var enD=calcPts(enemyOwned,BASES);
-  document.getElementById('ownPtLabel').textContent=owned.length>0?'（'+owned.length+'拠点・+'+myD+'pt/日）':'';
-  document.getElementById('enemyPtLabel').textContent=enemyOwned.length>0?'（'+enemyOwned.length+'拠点・+'+enD+'pt/日）':'';
-  var db=document.getElementById('pointDiffBox');
-  if(myPt!==null&&enPt!==null){
-    var diff=myPt-enPt; db.style.display='block';
+  var d=parseInt(document.getElementById('daysLeft').value)||1;
+  var myR=document.getElementById('myPoint').value;
+  var enR=document.getElementById('enemyPoint').value;
+  var myP=myR!==''?parseInt(myR):null;
+  var enP=enR!==''?parseInt(enR):null;
+  var own=chk('own');var enOwn=chk('enm');
+  var myD=pts(own);var enD=pts(enOwn);
+  document.getElementById('ownLbl').textContent=own.length>0?'（'+own.length+'拠点・+'+myD+'pt/日）':'';
+  document.getElementById('enLbl').textContent=enOwn.length>0?'（'+enOwn.length+'拠点・+'+enD+'pt/日）':'';
+  var db=document.getElementById('diffBox');
+  if(myP!==null&&enP!==null){
+    var diff=myP-enP;db.style.display='block';
     if(diff>0){db.style.cssText='display:block;border-radius:8px;padding:6px 12px;font-size:12px;font-weight:600;background:#ebfbee;color:#2f9e44;border:0.5px solid #8ce99a;';db.textContent='現在ポイント差：自チームが +'+diff+'pt リード中';}
     else if(diff<0){db.style.cssText='display:block;border-radius:8px;padding:6px 12px;font-size:12px;font-weight:600;background:#fff5f5;color:#c92a2a;border:0.5px solid #ffa8a8;';db.textContent='現在ポイント差：相手が '+Math.abs(diff)+'pt リード中';}
     else{db.style.cssText='display:block;border-radius:8px;padding:6px 12px;font-size:12px;font-weight:600;background:#f8f9fa;color:#868e96;border:0.5px solid rgba(0,0,0,0.12);';db.textContent='現在ポイント差：同点';}
   }else{db.style.display='none';}
-  var sb=document.getElementById('simBox'); var sc=document.getElementById('simContent');
-  if(myPt!==null&&owned.length>0){
+  var sb=document.getElementById('simBox');var sc=document.getElementById('simContent');
+  if(myP!==null&&own.length>0){
     sb.style.display='block';
-    var mf=myPt+myD*days; var ef=enPt!==null?enPt+enD*days:null; var fd=ef!==null?mf-ef:null;
-    var html='<div class="sim-grid"><div class="sim-card"><p class="sim-sub">自チーム（'+days+'日後）</p><p class="sim-val">'+mf+'pt</p><p class="sim-detail">+'+myD+'pt/日 × '+days+'日</p></div>';
-    if(ef!==null){html+='<div class="sim-card"><p class="sim-sub">相手ギルド（'+days+'日後）</p><p class="sim-val">'+ef+'pt</p><p class="sim-detail">+'+enD+'pt/日 × '+days+'日</p></div>';}
-    else{html+='<div class="sim-card" style="display:flex;align-items:center;justify-content:center;"><p class="sim-sub">相手ポイントを入力してください</p></div>';}
-    html+='</div>';
-    if(fd!==null){var rc,rt;if(fd>0){rc='#2f9e44';rt='現状維持で +'+fd+'pt フィニッシュ — 逃げ切れます';}else if(fd<0){rc='#c92a2a';rt='現状維持では '+Math.abs(fd)+'pt 届かない';}else{rc='#e67700';rt='現状維持で同点フィニッシュ';}html+='<p class="sim-result" style="color:'+rc+';">'+rt+'</p>';}
-    sc.innerHTML=html;
+    var mf=myP+myD*d;var ef=enP!==null?enP+enD*d:null;var fd=ef!==null?mf-ef:null;
+    var h='<div class="sg"><div class="sc"><p class="ss">自チーム（'+d+'日後）</p><p class="sv">'+mf+'pt</p><p class="sd">+'+myD+'pt/日 × '+d+'日</p></div>';
+    if(ef!==null){h+='<div class="sc"><p class="ss">相手ギルド（'+d+'日後）</p><p class="sv">'+ef+'pt</p><p class="sd">+'+enD+'pt/日 × '+d+'日</p></div>';}
+    else{h+='<div class="sc" style="display:flex;align-items:center;justify-content:center;"><p class="ss">相手ポイントを入力してください</p></div>';}
+    h+='</div>';
+    if(fd!==null){var rc,rt;if(fd>0){rc='#2f9e44';rt='現状維持で +'+fd+'pt フィニッシュ — 逃げ切れます';}else if(fd<0){rc='#c92a2a';rt='現状維持では '+Math.abs(fd)+'pt 届かない';}else{rc='#e67700';rt='現状維持で同点フィニッシュ';}h+='<p class="sr" style="color:'+rc+';">'+rt+'</p>';}
+    sc.innerHTML=h;
   }else{sb.style.display='none';}
 }
 
 function buildPrompt(){
   var mode=document.getElementById('mode').value;
-  var sengenCount=document.getElementById('sengenCount').value;
+  var sc=document.getElementById('sc').value;
   var enemy=document.getElementById('enemy').value;
-  var days=parseInt(document.getElementById('daysLeft').value)||1;
-  var myPt=document.getElementById('myPoint').value!==''?parseInt(document.getElementById('myPoint').value):null;
-  var enPt=document.getElementById('enemyPoint').value!==''?parseInt(document.getElementById('enemyPoint').value):null;
-  var owned=getChecked('own');
-  var attacked=getChecked('atk');
-  var enemyOwned=getChecked('enm');
-  var isN=mode==='national';
-  var maxDays=isN?7:14;
-  var cutoff=isN?'22:30':'21:30';
-  var endTime=isN?'22:45':'21:45';
-  var myD=calcPts(owned,BASES);
-  var enD=calcPts(enemyOwned,BASES);
-
+  var d=parseInt(document.getElementById('daysLeft').value)||1;
+  var myP=document.getElementById('myPoint').value!==''?parseInt(document.getElementById('myPoint').value):null;
+  var enP=document.getElementById('enemyPoint').value!==''?parseInt(document.getElementById('enemyPoint').value):null;
+  var own=chk('own');var atk=chk('atk');var enOwn=chk('enm');
+  var isN=mode==='national';var max=isN?7:14;
+  var cutoff=isN?'22:30':'21:30';var endT=isN?'22:45':'21:45';
+  var myD=pts(own);var enD=pts(enOwn);
   var attackable=[];
-  owned.forEach(function(n){BASES[n].neighbors.forEach(function(nb){if(owned.indexOf(nb)<0&&attackable.indexOf(nb)<0)attackable.push(nb);});});
-  var vulnerable=owned.filter(function(n){return attacked.indexOf(n)>=0;});
+  own.forEach(function(n){BASES[n].neighbors.forEach(function(nb){if(own.indexOf(nb)<0&&attackable.indexOf(nb)<0)attackable.push(nb);});});
+  var vuln=own.filter(function(n){return atk.indexOf(n)>=0;});
+  var myF=myP!==null?myP+myD*d:null;var enF=enP!==null?enP+enD*d:null;
+  var fd=myF!==null&&enF!==null?myF-enF:null;
+  var scL={'three':'3つ（全国版）','two':'2つ（上位8ギルド）','one':'1つ（9〜16位）','zero':'0（布告権なし）'}[sc]||'不明';
+  var enL={'weaker':'自分たちより弱い','equal':'ほぼ互角','stronger':'自分たちより強い'}[enemy]||'不明';
 
-  var sengenLabel={'three':'3つ（全国版）','two':'2つ（上位8ギルド）','one':'1つ（9〜16位）','zero':'0（布告権なし）'}[sengenCount]||'不明';
-  var enemyLabel={'weaker':'自分たちより弱い','equal':'ほぼ互角','stronger':'自分たちより強い'}[enemy]||'不明';
-  var modeLabel=isN?'全国版（1週間・22:00〜22:45）':'通常版（2週間・21:00〜21:45）';
+  var p='# 麗華の野望 戦略分析\n\n## ゲームルール（重要）\n';
+  p+='- 布告は朝8:00〜20:00のみ可能（早い者勝ち）\n';
+  p+='- 布告可能数は前日ランキング次第（通常版：上位8ギルドは2つ、9〜16位は1つ、全国版は3つ）\n';
+  p+='- ★1=1pt/日、★2=2pt/日、★3（本丸）=3pt/日（毎日終戦後に加算）\n';
+  p+='- ★2への布告条件：★1を1つ以上保有\n';
+  p+='- 本丸（★3）への布告条件：★2を1つ、または★1を2つ以上保有\n';
+  p+='- 拠点取得後15分間は保護期間（取り返し不可）\n';
+  p+='- 終戦'+endT+'の15分前（'+cutoff+'）以降に取った拠点は相手に取り返せない\n';
+  p+='- 布告返し：相手が布告した拠点に自分も布告することで相手の戦力を分散できる\n\n';
 
-  var myFinal=myPt!==null?myPt+myD*days:null;
-  var enFinal=enPt!==null?enPt+enD*days:null;
-  var finalDiff=myFinal!==null&&enFinal!==null?myFinal-enFinal:null;
+  p+='## 現在の状況\n';
+  p+='- 開催形式：'+(isN?'全国版（1週間・22:00〜22:45）':'通常版（2週間・21:00〜21:45）')+'\n';
+  p+='- 残り日数：'+d+'日（全'+max+'日中）\n';
+  p+='- 布告可能数：'+scL+'\n';
+  p+='- 相手の戦力：'+enL+'\n\n';
 
-  var prompt = '# 麗華の野望 戦略分析依頼\n\n';
-  prompt += '## ゲームルール\n';
-  prompt += '- 毎日21:00〜21:45（全国版は22:00〜22:45）に決戦フェーズがある\n';
-  prompt += '- 布告は朝8:00〜20:00の間のみ可能（早い者勝ち）\n';
-  prompt += '- 布告できる数は前日ランキングで決まる（通常版：上位8ギルドは2つ、9〜16位は1つ）\n';
-  prompt += '- 全国版は布告権3つ\n';
-  prompt += '- ★1拠点＝1pt/日、★2拠点＝2pt/日、★3（本丸）＝3pt/日\n';
-  prompt += '- ★2拠点に布告するには★1を1つ以上保有が条件\n';
-  prompt += '- 本丸（★3）に布告するには★2を1つ、または★1を2つ以上保有が条件\n';
-  prompt += '- 布告された拠点を取得後15分間は保護期間（取り返し不可）\n';
-  prompt += '- 終戦'+endTime+'の15分前（'+cutoff+'）以降に取った拠点は相手に取り返せない\n';
-  prompt += '- 疲労度：1班あたり1.25%、80班で100%（無力化）\n';
-  prompt += '- ★1は1分あたり15班、★2は20班、★3は30班の防衛が必要\n';
-  prompt += '- 布告返し：相手が布告した拠点に自分も布告することで相手の戦力を分散できる\n\n';
+  p+='## 自チームの保有拠点\n';
+  if(own.length>0){own.forEach(function(n){p+='- '+sl(n)+' '+n+'（+'+BASES[n].star+'pt/日）\n';});p+='合計：+'+myD+'pt/日\n';}else{p+='（なし）\n';}
+  p+='\n## 布告されている拠点\n';
+  if(atk.length>0){atk.forEach(function(n){p+='- '+sl(n)+' '+n+(own.indexOf(n)>=0?' ←自チームが保有中・布告されている！':'')+'\n';});}else{p+='（なし）\n';}
+  p+='\n## 相手ギルドの保有拠点\n';
+  if(enOwn.length>0){enOwn.forEach(function(n){p+='- '+sl(n)+' '+n+'（+'+BASES[n].star+'pt/日）\n';});p+='合計：+'+enD+'pt/日\n';}else{p+='（不明）\n';}
+  p+='\n## 今日布告できる拠点（自チームの隣接拠点）\n';
+  if(attackable.length>0){attackable.forEach(function(n){p+='- '+sl(n)+' '+n+'（+'+BASES[n].star+'pt/日）\n';});}else{p+='（なし、または拠点未保有）\n';}
 
-  prompt += '## 現在の状況\n';
-  prompt += '- 開催形式：'+modeLabel+'\n';
-  prompt += '- 残り日数：'+days+'日（全'+maxDays+'日中）\n';
-  prompt += '- 布告可能数：'+sengenLabel+'\n';
-  prompt += '- 相手の戦力：'+enemyLabel+'\n\n';
-
-  prompt += '## 自チームの保有拠点\n';
-  if(owned.length>0){
-    owned.forEach(function(n){prompt+='- '+sl(n)+' '+n+'（+'+BASES[n].star+'pt/日）\n';});
-    prompt += '合計：+'+myD+'pt/日\n';
-  }else{prompt+='（なし）\n';}
-  prompt += '\n';
-
-  prompt += '## 布告されている拠点（どのギルドからでも）\n';
-  if(attacked.length>0){
-    attacked.forEach(function(n){
-      var isVulnerable=owned.indexOf(n)>=0;
-      prompt+='- '+sl(n)+' '+n+(isVulnerable?' ←自チームが保有中':'')+'（'+BASES[n].star+'pt/日）\n';
-    });
-  }else{prompt+='（なし）\n';}
-  prompt += '\n';
-
-  prompt += '## 相手ギルドの保有拠点\n';
-  if(enemyOwned.length>0){
-    enemyOwned.forEach(function(n){prompt+='- '+sl(n)+' '+n+'（+'+BASES[n].star+'pt/日）\n';});
-    prompt += '合計：+'+enD+'pt/日\n';
-  }else{prompt+='（不明）\n';}
-  prompt += '\n';
-
-  prompt += '## 今日布告できる拠点（自チームの保有拠点に隣接）\n';
-  if(attackable.length>0){
-    attackable.forEach(function(n){prompt+='- '+sl(n)+' '+n+'（+'+BASES[n].star+'pt/日）\n';});
-  }else{prompt+='（なし、または拠点未保有）\n';}
-  prompt += '\n';
-
-  if(myPt!==null||enPt!==null){
-    prompt += '## ポイント情報\n';
-    if(myPt!==null)prompt+='- 自チーム現在：'+myPt+'pt（現状維持で'+days+'日後：'+myFinal+'pt）\n';
-    if(enPt!==null)prompt+='- 相手現在：'+enPt+'pt（現状維持で'+days+'日後：'+enFinal+'pt）\n';
-    if(finalDiff!==null){
-      if(finalDiff>0)prompt+='- 現状維持の場合：+'+finalDiff+'pt で逃げ切れる\n';
-      else if(finalDiff<0)prompt+='- 現状維持の場合：'+Math.abs(finalDiff)+'pt 届かない\n';
-      else prompt+='- 現状維持の場合：同点フィニッシュ\n';
-    }
-    prompt += '\n';
+  if(myP!==null||enP!==null){
+    p+='\n## ポイント情報\n';
+    if(myP!==null)p+='- 自チーム現在：'+myP+'pt → '+d+'日後（現状維持）：'+myF+'pt\n';
+    if(enP!==null)p+='- 相手現在：'+enP+'pt → '+d+'日後（現状維持）：'+enF+'pt\n';
+    if(fd!==null){if(fd>0)p+='- 現状維持：+'+fd+'pt で逃げ切れる\n';else if(fd<0)p+='- 現状維持：'+Math.abs(fd)+'pt 届かない\n';else p+='- 現状維持：同点フィニッシュ\n';}
   }
 
-  prompt += '## 分析依頼\n';
-  prompt += '上記の状況を踏まえて、以下をJSON形式のみで出力してください（他の文章は不要）。\n\n';
-  prompt += '```json\n';
-  prompt += '{\n';
-  prompt += '  "summary": "状況の一言まとめ（20文字以内）",\n';
-  prompt += '  "priority": "defense or attack or balance",\n';
-  prompt += '  "reversal": {\n';
-  prompt += '    "type": "leading or reversible or difficult or impossible",\n';
-  prompt += '    "message": "逆転に関する分析（ポイント数値を含む具体的な内容）"\n';
-  prompt += '  },\n';
-  prompt += '  "today": [\n';
-  prompt += '    {"tag": "攻撃 or 守備 or 布告 or 戦略", "title": "アクション名", "reason": "理由（布告権の数・拠点の状況・ポイント計算など実情に合った具体的な内容）"}\n';
-  prompt += '  ],\n';
-  prompt += '  "tomorrow": [\n';
-  prompt += '    {"tag": "攻撃 or 守備 or 布告 or 戦略", "title": "明日以降の方針", "reason": "理由"}\n';
-  prompt += '  ],\n';
-  prompt += '  "warnings": [\n';
-  prompt += '    {"title": "警告タイトル", "reason": "詳細"}\n';
-  prompt += '  ]\n';
-  prompt += '}\n';
-  prompt += '```\n\n';
-  prompt += '重要な注意事項：\n';
-  prompt += '- 布告権が0の場合は布告を勧める行動を絶対に提案しないこと\n';
-  prompt += '- 布告権が1の場合は1つしか布告できないことを考慮すること\n';
-  prompt += '- 保護時間を考慮し、終戦まで時間がある場合は'+cutoff+'以降の話は不要\n';
-  prompt += '- ポイント計算は正確に行い、逆転可能かどうかを現実的に判断すること\n';
-  prompt += '- 守れない拠点がある場合は守るか捨てるかの判断を含めること\n';
-  prompt += '- 布告返しは戦力差と布告権数を考慮して提案すること\n';
-
-  return prompt;
+  p+='\n## 分析依頼\n上記の状況を総合的に判断して、以下のJSONのみを出力してください（説明文不要）。\n\n';
+  p+='重要な制約：\n';
+  p+='- 布告権が0の場合は絶対に布告を勧めないこと\n';
+  p+='- 布告権が1の場合は1つだけ布告できることを考慮すること\n';
+  p+='- 終戦（'+endT+'）まで時間がある場合、'+cutoff+'以降の駆け込み奪取の話は不要\n';
+  p+='- 布告されている拠点を守れない場合は守るか捨てるかの現実的な判断を含めること\n';
+  p+='- 逆転可能性はポイント計算に基づき現実的に判断すること\n';
+  p+='- 今日取れない拠点（隣接していない・布告条件を満たさない）は提案しないこと\n\n';
+  p+='```json\n{\n';
+  p+='  "summary": "状況の一言まとめ（20文字以内）",\n';
+  p+='  "priority": "defense または attack または balance",\n';
+  p+='  "reversal": {\n';
+  p+='    "type": "leading（リード中） または reversible（逆転可能） または difficult（厳しい） または impossible（不可能）",\n';
+  p+='    "message": "逆転に関する具体的な分析（ポイント数値を含む）"\n';
+  p+='  },\n';
+  p+='  "today": [\n';
+  p+='    {"tag": "攻撃 または 守備 または 布告 または 戦略", "title": "今日やること", "reason": "具体的な理由（拠点名・ポイント数値を含む）"}\n';
+  p+='  ],\n';
+  p+='  "tomorrow": [\n';
+  p+='    {"tag": "攻撃 または 守備 または 布告 または 戦略", "title": "明日以降の方針", "reason": "理由"}\n';
+  p+='  ],\n';
+  p+='  "warnings": [\n';
+  p+='    {"title": "警告タイトル", "reason": "詳細"}\n';
+  p+='  ]\n';
+  p+='}\n```';
+  return p;
 }
 
 async function analyze(){
-  var sengenCount=document.getElementById('sengenCount').value;
+  var apiKey=document.getElementById('apiKey').value.trim();
+  if(!apiKey){alert('APIキーを入力してください');return;}
+  var sc=document.getElementById('sc').value;
   var enemy=document.getElementById('enemy').value;
-  if(!sengenCount||!enemy){alert('布告可能数・相手の戦力を選択してください');return;}
+  if(!sc||!enemy){alert('布告可能数・相手の戦力を選択してください');return;}
 
   var btn=document.getElementById('analyzeBtn');
   btn.disabled=true;
-  btn.innerHTML='<div class="spinner" style="display:inline-block;margin-right:8px;"></div> AIが分析中...';
-
-  document.getElementById('result').innerHTML='<div class="loading"><div class="spinner"></div><span>AIが状況を分析しています...</span></div>';
-
-  var prompt=buildPrompt();
+  btn.innerHTML='<span class="spin"></span>AIが分析中...';
+  document.getElementById('result').innerHTML='<div class="card" style="text-align:center;padding:2rem;"><div class="spin" style="width:24px;height:24px;margin:0 auto 12px;display:block;"></div><p style="color:var(--tx2);margin:0;font-size:14px;">AIが状況を分析しています...</p></div>';
 
   try{
-    var response=await fetch('https://api.anthropic.com/v1/messages',{
+    var res=await fetch('https://api.anthropic.com/v1/messages',{
       method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:1000,
-        messages:[{role:'user',content:prompt}]
-      })
+      headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1200,messages:[{role:'user',content:buildPrompt()}]})
     });
-    var data=await response.json();
-    var text=data.content.map(function(i){return i.text||'';}).join('');
-    var clean=text.replace(/```json|```/g,'').trim();
+    var data=await res.json();
+    if(data.error){throw new Error(data.error.message);}
+    var txt=data.content.map(function(i){return i.text||'';}).join('');
+    var clean=txt.replace(/```json|```/g,'').trim();
     var result=JSON.parse(clean);
     renderResult(result);
   }catch(e){
-    document.getElementById('result').innerHTML='<div class="card danger"><p style="margin:0;font-size:13px;color:#c92a2a;">分析中にエラーが発生しました。しばらく待ってから再試行してください。</p></div>';
+    document.getElementById('result').innerHTML='<div class="card d"><p style="margin:0;font-size:13px;color:var(--txd);">エラーが発生しました：'+e.message+'<br><br>APIキーが正しいか確認してください。</p></div>';
   }finally{
     btn.disabled=false;
     btn.innerHTML='<i class="ti ti-sparkles"></i> AIに戦略を分析してもらう';
   }
 }
 
-function tagStyle(tag){
-  if(tag==='攻撃')return 'background:#e7f5ff;color:#1971c2;';
-  if(tag==='守備')return 'background:#fff5f5;color:#c92a2a;';
-  if(tag==='布告')return 'background:#fff9db;color:#e67700;';
+function tStyle(t){
+  if(t==='攻撃')return 'background:#e7f5ff;color:#1971c2;';
+  if(t==='守備')return 'background:#fff5f5;color:#c92a2a;';
+  if(t==='布告')return 'background:#fff9db;color:#e67700;';
   return 'background:#f8f9fa;color:#868e96;';
 }
 
 function renderResult(a){
-  var pcMap={
-    defense:{label:'守備優先',bg:'#fff5f5',tc:'#c92a2a',icon:'ti-shield'},
-    attack:{label:'攻撃優先',bg:'#e7f5ff',tc:'#1971c2',icon:'ti-sword'},
-    balance:{label:'バランス',bg:'#ebfbee',tc:'#2f9e44',icon:'ti-scale'}
-  };
-  var pc=pcMap[a.priority]||pcMap['balance'];
-  var html='';
+  var pm={defense:{l:'守備優先',bg:'#fff5f5',tc:'#c92a2a',ic:'ti-shield'},attack:{l:'攻撃優先',bg:'#e7f5ff',tc:'#1971c2',ic:'ti-sword'},balance:{l:'バランス',bg:'#ebfbee',tc:'#2f9e44',ic:'ti-scale'}};
+  var pc=pm[a.priority]||pm.balance;
+  var h='';
 
   if(a.warnings&&a.warnings.length>0){
-    html+='<div class="card danger"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><i class="ti ti-alert-triangle" style="font-size:18px;color:#c92a2a;"></i><p style="font-size:14px;font-weight:600;color:#c92a2a;margin:0;">緊急警告</p></div>';
-    a.warnings.forEach(function(w){html+='<div style="padding-left:12px;border-left:2px solid #ffa8a8;margin-bottom:6px;"><p style="font-size:13px;font-weight:600;color:#c92a2a;margin:0 0 3px;">'+w.title+'</p><p style="font-size:12px;color:#868e96;margin:0;line-height:1.6;">'+w.reason+'</p></div>';});
-    html+='</div>';
+    h+='<div class="card d"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><i class="ti ti-alert-triangle" style="font-size:18px;color:#c92a2a;"></i><p style="font-size:14px;font-weight:600;color:#c92a2a;margin:0;">緊急警告</p></div>';
+    a.warnings.forEach(function(w){h+='<div style="padding-left:12px;border-left:2px solid #ffa8a8;margin-bottom:6px;"><p style="font-size:13px;font-weight:600;color:#c92a2a;margin:0 0 3px;">'+w.title+'</p><p style="font-size:12px;color:var(--tx2);margin:0;line-height:1.6;">'+w.reason+'</p></div>';});
+    h+='</div>';
   }
 
   if(a.reversal){
     var r=a.reversal;
-    var rcfg={
-      leading:{cls:'success',icon:'ti-shield-check',color:'#2f9e44',border:'#8ce99a',label:'逆転シミュレーション'},
-      reversible:{cls:'success',icon:'ti-trending-up',color:'#2f9e44',border:'#8ce99a',label:'逆転シミュレーション — 逆転可能！'},
-      difficult:{cls:'warning',icon:'ti-alert-circle',color:'#e67700',border:'#ffd43b',label:'逆転シミュレーション — 厳しい状況'},
-      impossible:{cls:'danger',icon:'ti-x',color:'#c92a2a',border:'#ffa8a8',label:'逆転シミュレーション — 逆転不可'}
-    }[r.type]||{cls:'',icon:'ti-info-circle',color:'#868e96',border:'rgba(0,0,0,0.12)',label:'逆転シミュレーション'};
-    html+='<div class="card '+rcfg.cls+'"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><i class="ti '+rcfg.icon+'" style="font-size:18px;color:'+rcfg.color+';"></i><p style="font-size:14px;font-weight:600;color:'+rcfg.color+';margin:0;">'+rcfg.label+'</p></div>';
-    html+='<div style="padding-left:12px;border-left:2px solid '+rcfg.border+';"><p style="font-size:13px;color:'+rcfg.color+';font-weight:600;margin:0;line-height:1.6;">'+r.message+'</p></div></div>';
+    var rc={leading:{cls:'s',ic:'ti-shield-check',c:'#2f9e44',bc:'#8ce99a',lb:'現状分析'},reversible:{cls:'s',ic:'ti-trending-up',c:'#2f9e44',bc:'#8ce99a',lb:'逆転シミュレーション — 逆転可能！'},difficult:{cls:'w',ic:'ti-alert-circle',c:'#e67700',bc:'#ffd43b',lb:'逆転シミュレーション — 厳しい状況'},impossible:{cls:'d',ic:'ti-x',c:'#c92a2a',bc:'#ffa8a8',lb:'逆転シミュレーション — 逆転不可'}}[r.type]||{cls:'',ic:'ti-info-circle',c:'#868e96',bc:'rgba(0,0,0,0.12)',lb:'ポイント分析'};
+    h+='<div class="card '+rc.cls+'"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><i class="ti '+rc.ic+'" style="font-size:18px;color:'+rc.c+';"></i><p style="font-size:14px;font-weight:600;color:'+rc.c+';margin:0;">'+rc.lb+'</p></div>';
+    h+='<div style="padding-left:12px;border-left:2px solid '+rc.bc+';"><p style="font-size:13px;color:'+rc.c+';font-weight:600;margin:0;line-height:1.6;">'+r.message+'</p></div></div>';
   }
 
-  html+='<div class="card"><span style="background:'+pc.bg+';color:'+pc.tc+';font-size:12px;font-weight:600;padding:3px 10px;border-radius:8px;display:inline-flex;align-items:center;gap:4px;margin-bottom:8px;"><i class="ti '+pc.icon+'" style="font-size:13px;"></i> '+pc.label+'</span><p style="font-size:16px;font-weight:600;color:var(--color-text);margin:0;">'+a.summary+'</p></div>';
+  h+='<div class="card"><span style="background:'+pc.bg+';color:'+pc.tc+';font-size:12px;font-weight:600;padding:3px 10px;border-radius:8px;display:inline-flex;align-items:center;gap:4px;margin-bottom:8px;"><i class="ti '+pc.ic+'" style="font-size:13px;"></i> '+pc.l+'</span><p style="font-size:16px;font-weight:600;margin:0;">'+a.summary+'</p></div>';
 
-  function actionSection(items,title,icon){
+  function sec(items,title,icon){
     if(!items||!items.length)return '';
-    var s='<div class="card"><div style="display:flex;align-items:center;gap:8px;margin-bottom:1rem;"><i class="ti '+icon+'" style="font-size:18px;color:var(--color-text-secondary);"></i><p style="font-size:14px;font-weight:600;color:var(--color-text);margin:0;">'+title+'</p></div>';
+    var s='<div class="card"><div style="display:flex;align-items:center;gap:8px;margin-bottom:1rem;"><i class="ti '+icon+'" style="font-size:18px;color:var(--tx2);"></i><p style="font-size:14px;font-weight:600;margin:0;">'+title+'</p></div>';
     items.forEach(function(item){
-      s+='<div style="margin-bottom:1rem;padding-left:12px;border-left:2px solid var(--color-border);">';
-      s+='<div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;flex-wrap:wrap;">';
-      s+='<span class="action-tag" style="'+tagStyle(item.tag)+'">'+item.tag+'</span>';
-      s+='<p style="font-size:13px;font-weight:600;color:var(--color-text);margin:0;">'+item.title+'</p></div>';
-      s+='<p style="font-size:12px;color:var(--color-text-secondary);margin:0;line-height:1.6;">'+item.reason+'</p></div>';
+      s+='<div style="margin-bottom:1rem;padding-left:12px;border-left:2px solid var(--br);">';
+      s+='<div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;flex-wrap:wrap;"><span class="aitag" style="'+tStyle(item.tag)+'">'+item.tag+'</span><p style="font-size:13px;font-weight:600;margin:0;">'+item.title+'</p></div>';
+      s+='<p style="font-size:12px;color:var(--tx2);margin:0;line-height:1.6;">'+item.reason+'</p></div>';
     });
     return s+'</div>';
   }
 
-  html+=actionSection(a.today,'今日やること','ti-calendar-event');
-  html+=actionSection(a.tomorrow,'明日以降の方針','ti-calendar-stats');
+  h+=sec(a.today,'今日やること','ti-calendar-event');
+  h+=sec(a.tomorrow,'明日以降の方針','ti-calendar-stats');
 
-  var owned=getChecked('own');
-  var attackable=[];
-  owned.forEach(function(n){BASES[n].neighbors.forEach(function(nb){if(owned.indexOf(nb)<0&&attackable.indexOf(nb)<0)attackable.push(nb);});});
-
+  var own=chk('own');var attackable=[];
+  own.forEach(function(n){BASES[n].neighbors.forEach(function(nb){if(own.indexOf(nb)<0&&attackable.indexOf(nb)<0)attackable.push(nb);});});
   if(attackable.length>0){
-    html+='<div class="card secondary"><p class="section-label">今日布告できる拠点</p><div class="tag-list">';
-    attackable.forEach(function(n){
-      if(!BASES[n])return;
-      var s=BASES[n].star;
-      html+='<span class="base-tag star'+(s===3?'3':s===2?'2':'1')+'">'+'★'.repeat(s)+' '+n+'（+'+s+'pt/日）</span>';
-    });
-    html+='</div></div>';
+    h+='<div class="card sec"><p class="lbl">今日布告できる拠点</p><div class="tgl">';
+    attackable.forEach(function(n){if(!BASES[n])return;var s=BASES[n].star;h+='<span class="btg s'+(s===3?'3':s===2?'2':'1')+'">'+'★'.repeat(s)+' '+n+'（+'+s+'pt/日）</span>';});
+    h+='</div></div>';
   }
 
-  document.getElementById('result').innerHTML=html;
+  document.getElementById('result').innerHTML=h;
 }
 
-buildMapButtons(); buildCheckboxGrids(); onDaysChange();
+buildMapBtns();buildGrids();onDaysChange();
 </script>
 </body>
 </html>
